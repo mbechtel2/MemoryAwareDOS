@@ -1,0 +1,39 @@
+BwReadVictim()
+{
+	sudo chrt -f 1 bandwidth -c 0 -m 48 -x
+}
+
+LatencyReadVictim() 
+{
+	sudo chrt -f 1 latency-mlp -l 6 -m 8 -c 0 -t -i 100000
+}
+
+BwRead()
+{
+	bandwidth -c $1 -m 16384 -x -t 0 &
+}
+
+LatencyRead()
+{
+	latency-mlp -c $1 -m 16384 -l 6 -i 100000 -t &
+}
+
+BankRead()
+{
+	attacker3 -c $1 -m 16384 -l 6 -i 100000 -t &
+}
+
+BwWrite()
+{
+	bandwidth -c $1 -m 16384 -x -t 0 -a write &
+}
+
+LatencyWrite()
+{
+	latency-mlp -c $1 -m 16384 -l 6 -i 100000 -t -a write &
+}
+
+BankWrite()
+{
+	attacker3 -c $1 -m 16384 -l 6 -i 100000 -t -a write &
+}
