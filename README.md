@@ -29,6 +29,7 @@ Once set, build and install the necessary IsolBench benchmarks with:
 	$ cd IsolBench/bench
 	$ make bandwidth latency-mlp attacker3
 	$ sudo cp bandwidth latency-mlp attacker3 /usr/bin
+	$ cd ../..
 	
 ## Run the tests
 
