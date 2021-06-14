@@ -1,6 +1,6 @@
 BwReadVictim()
 {
-	sudo chrt -f 1 bandwidth -c 0 -m 48 -x
+	sudo chrt -f 1 bandwidth -c 0 -m $1 -x
 }
 
 LatencyReadVictim() 
@@ -13,12 +13,12 @@ BwRead()
 	bandwidth -c $1 -m 16384 -x -t 0 &
 }
 
-LatencyRead()
+PLLRead()
 {
 	latency-mlp -c $1 -m 16384 -l 6 -i 100000 -t &
 }
 
-BankRead()
+BkPLLRead()
 {
 	attacker3 -c $1 -m 16384 -l 6 -i 100000 -t &
 }
@@ -28,12 +28,12 @@ BwWrite()
 	bandwidth -c $1 -m 16384 -x -t 0 -a write &
 }
 
-LatencyWrite()
+PLLWrite()
 {
 	latency-mlp -c $1 -m 16384 -l 6 -i 100000 -t -a write &
 }
 
-BankWrite()
+BkPLLWrite()
 {
 	attacker3 -c $1 -m 16384 -l 6 -i 100000 -t -a write &
 }
