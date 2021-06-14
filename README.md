@@ -10,6 +10,11 @@ Note that we only provide code for the experiments run with a synthetic workload
 	# echo 200 > /proc/sys/vm/nr_hugepages
 	# cat /proc/meminfo
 	# exit
+	
+If not available, HugePages can be added to a system by building the Linux kernel with the following configuration options enabled:
+
+	CONFIG_HUGETLBFS=y
+	CONFIG_HUGETLB_PAGE=y
 
 ## Initialize the IsolBench directory
 
@@ -34,7 +39,6 @@ Once set, build and install the necessary IsolBench benchmarks with:
 ## Run the tests
 
 	$ ./bwread-tests.sh
-	$ ./latencyread-tests.sh
 	
 ## Generate the figures
 
